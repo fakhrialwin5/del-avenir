@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
 
@@ -45,14 +45,6 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link href="/" className="flex items-center gap-0.5 pl-5 pr-3">
-            <Image
-              src="/logo.png"
-              alt="Del'Avenir"
-              width={28}
-              height={28}
-              className="rounded-sm"
-              priority
-            />
             <span
               className={`font-display text-xl tracking-tight transition-colors duration-300 ${
                 scrolled ? 'text-black' : 'text-white'
@@ -128,14 +120,6 @@ export default function Navbar() {
       >
         <nav className="flex items-center justify-between px-5 py-4">
           <Link href="/" className="flex items-center gap-0.5">
-            <Image
-              src="/logo.png"
-              alt="Del'Avenir"
-              width={26}
-              height={26}
-              className="rounded-sm"
-              priority
-            />
             <span
               className={`font-display text-xl tracking-tight ${
                 scrolled ? 'text-black' : 'text-white'

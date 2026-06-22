@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AuroraBackground from "@/components/ui/AuroraBackground";
-import Image from "next/image";
+
 
 interface LoadingScreenProps {
   isLoading: boolean;
@@ -251,21 +251,8 @@ export default function LoadingScreen({ isLoading }: LoadingScreenProps) {
               />
             </motion.div>
 
-            {/* Logo + Title with cinematic reveal */}
-            <div className="text-center flex flex-col items-center gap-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <Image
-                  src="/logo.png"
-                  alt="Del'Avenir"
-                  width={64}
-                  height={64}
-                  className="rounded-lg"
-                />
-              </motion.div>
+            {/* Title with cinematic reveal */}
+            <div className="text-center">
               <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-white">
                 <CinematicText text="Del'Avenir" delay={0.9} />
               </h2>

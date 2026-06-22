@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { NAV_LINKS, CONTACT_INFO } from '@/lib/constants';
 
 export default function Footer() {
@@ -13,14 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand - spans more */}
           <div className="md:col-span-5">
-            <Link href="/" className="inline-block flex items-center gap-2">
-              <Image
-                src="/logo.png"
-                alt="Del'Avenir"
-                width={32}
-                height={32}
-                className="rounded-sm"
-              />
+            <Link href="/" className="inline-block">
               <span className="font-display text-2xl tracking-tight text-white">
                 Del&apos;Avenir
               </span>

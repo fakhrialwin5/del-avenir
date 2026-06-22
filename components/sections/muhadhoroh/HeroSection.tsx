@@ -125,7 +125,7 @@ export default function HeroSection() {
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
-            <span className="text-sm font-body">Pesantren Baitul Qur&apos;an</span>
+            <span className="text-sm font-body"></span>
           </div>
           <div className="flex items-center gap-2">
             <Users className="w-4 h-4" />

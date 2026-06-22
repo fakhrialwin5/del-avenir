@@ -1,9 +1,8 @@
 // ── Site Information ──
 export const SITE_CONFIG = {
   name: "Del'Avenir",
-  title: "Del'Avenir - Pesantren Baitul Qur'an Sragen",
-  description:
-    "Generasi 11 Baitul Qur'an - Achieving the dream of achieving success. Carving the era, painting the future.",
+  title: "Del'Avenir",
+  description: "Generasi 11 Baitul Qur'an — Mewujudkan mimpi, merajut masa depan.",
   url: "https://delavenir.com",
   logo: "/logo.png",
 };

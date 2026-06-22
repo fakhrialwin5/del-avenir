@@ -14,7 +14,7 @@ const fadeInUp = {
 
 const eventDetails = [
   { icon: Calendar, label: 'Date', value: 'August 15, 2026' },
-  { icon: MapPin, label: 'Venue', value: "Pesantren Baitul Qur'an" },
+  { icon: MapPin, label: 'Venue', value: "Del'Avenir" },
   { icon: Users, label: 'Participants', value: '1000+ Attendees' },
 ];
 

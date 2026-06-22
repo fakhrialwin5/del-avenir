@@ -21,7 +21,7 @@ export default function AboutSection() {
     <section id="about" className="py-32 md:py-40 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
-          title="Pesantren Baitul Qur'an Sragen"
+          title="Del'Avenir"
           subtitle="Nurturing Future Leaders Through Islamic Excellence"
         />
 

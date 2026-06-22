@@ -54,7 +54,7 @@ export default function SupportCTASection() {
                 <h3 className="text-xl font-display mb-4">Donate Now</h3>
                 <p className="text-white/60 font-body mb-7 text-[15px] leading-relaxed">
                   Support the development of facilities and educational programs at
-                  Pesantren Baitul Qur&apos;an.
+                  
                 </p>
 
                 <div className="divider-elegant-white mb-7" />

@@ -120,7 +120,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-16 pt-8 border-t border-white/[0.06]">
           <p className="text-xs text-white/25 font-body text-center">
-            &copy; {currentYear} Del&apos;Avenir. Pesantren Baitul Qur&apos;an Sragen. All rights reserved.
+            &copy; {currentYear} Del&apos;Avenir. All rights reserved.
           </p>
         </div>
       </div>

@@ -25,9 +25,9 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  title: "Del'Avenir — Pesantren Baitul Qur'an Sragen",
+  title: "Del'Avenir",
   description:
-    "Generasi 11 Baitul Qur'an — Achieving the dream of achieving success. Carving the era, painting the future.",
+    "Generasi 11 Baitul Qur'an — Mewujudkan mimpi, merajut masa depan.",
   keywords: [
     "Pesantren Baitul Qur'an",
     "Sragen",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://delavenir.com",
     siteName: "Del'Avenir",
-    title: "Del'Avenir — Pesantren Baitul Qur'an Sragen",
+    title: "Del'Avenir",
     description:
-      "Generasi 11 Baitul Qur'an — Achieving the dream of achieving success. Carving the era, painting the future.",
+      "Generasi 11 Baitul Qur'an — Mewujudkan mimpi, merajut masa depan.",
     images: [
       {
         url: "/og-image.png",
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Del'Avenir — Pesantren Baitul Qur'an Sragen",
+    title: "Del'Avenir",
     description:
-      "Generasi 11 Baitul Qur'an — Achieving the dream of achieving success. Carving the era, painting the future.",
+      "Generasi 11 Baitul Qur'an — Mewujudkan mimpi, merajut masa depan.",
     images: ["/og-image.png"],
   },
   robots: {

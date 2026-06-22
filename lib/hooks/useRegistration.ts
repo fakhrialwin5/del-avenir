@@ -23,14 +23,16 @@ export function useRegistration(): UseRegistrationReturn {
     setLoading(true);
     const supabase = createBrowserClient();
 
-    const { error } = await supabase.from("registrations").insert({
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      role: data.role as "Guest" | "Participant" | "Volunteer",
-      guests: data.guests,
-      status: "pending",
-    });
+    const { error } = await (supabase as any)
+      .from("registrations")
+      .insert({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        role: data.role,
+        guests: data.guests,
+        status: "pending",
+      });
 
     setLoading(false);
 

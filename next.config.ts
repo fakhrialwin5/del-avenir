@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
   },
 
   /* Optimize static generation */
-  output: 'standalone',
+  output: 'export',
 
   /* Performance optimizations */
   poweredByHeader: false,

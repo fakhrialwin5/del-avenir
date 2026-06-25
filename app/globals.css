@@ -321,3 +321,15 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── CLS Prevention ── */
+img[loading="lazy"],
+video[preload="none"],
+video[preload="metadata"] {
+  aspect-ratio: auto;
+}

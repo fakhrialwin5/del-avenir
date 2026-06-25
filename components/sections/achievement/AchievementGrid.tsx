@@ -1,6 +1,5 @@
 'use client';
 
-import { useMemo } from 'react';
 import { Trophy, SearchX, Loader2 } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -41,7 +40,7 @@ export default function AchievementGrid({
   // Loading state
   if (loading) {
     return (
-      <section className="py-20">
+      <section className="py-20 min-h-[400px] flex items-center justify-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <Loader2 className="mx-auto h-8 w-8 animate-spin text-gold mb-4" />
           <p className="text-gray-500 font-body">Loading achievements...</p>
@@ -53,7 +52,7 @@ export default function AchievementGrid({
   // Error state
   if (error) {
     return (
-      <section className="py-20">
+      <section className="py-20 min-h-[400px] flex items-center justify-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-red-500 font-body">
             Failed to load achievements. Please try again later.
@@ -66,7 +65,7 @@ export default function AchievementGrid({
   // Empty state
   if (achievements.length === 0) {
     return (
-      <section className="py-20">
+      <section className="py-20 min-h-[400px] flex items-center justify-center">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <SearchX className="mx-auto h-16 w-16 text-gray-300 mb-4" />
           <h3 className="font-display text-xl font-bold text-gray-700 mb-2">
@@ -82,7 +81,7 @@ export default function AchievementGrid({
 
   return (
     <section className="py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 min-h-[300px]">
         {/* Results count */}
         <p className="mb-8 text-sm text-gray-500 font-body">
           Showing{' '}

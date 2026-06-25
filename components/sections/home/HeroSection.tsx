@@ -54,25 +54,31 @@ function VideoBackground() {
     };
   }, [mounted]);
 
-  if (!mounted) return null;
-
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <video
-        ref={videoRef}
-        className="absolute w-full h-full object-cover"
-        style={{
-          top: '300px',
-          inset: 'auto 0 0 0',
-          opacity: 0,
-        }}
-        loop
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src="/videos/green-fields-and-peaks.960x540.mp4" type="video/mp4" />
-      </video>
+      {/* Dark gradient placeholder — renders immediately on SSR/SSG and before video loads */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(180deg, #0a0f1a 0%, #111827 40%, #0f172a 100%)' }}
+      />
+
+      {mounted && (
+        <video
+          ref={videoRef}
+          className="absolute w-full h-full object-cover"
+          style={{
+            top: '300px',
+            inset: 'auto 0 0 0',
+            opacity: 0,
+          }}
+          loop
+          muted
+          playsInline
+          preload="metadata"
+        >
+          <source src="/videos/green-fields-and-peaks.960x540.mp4" type="video/mp4" />
+        </video>
+      )}
 
       {/* Gradient overlays for cinematic feel */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
@@ -102,7 +108,6 @@ function FloatingParticles() {
   }, []);
 
   if (!mounted) return null;
-
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {particles.map((p) => (

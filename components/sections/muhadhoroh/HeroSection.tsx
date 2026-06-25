@@ -53,7 +53,7 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      <VideoBackground videoSrc="/videos/green-fields-and-peaks.960x540.mp4" />
+      <VideoBackground videoSrc="/videos/green-fields-and-peaks.960x540.mp4" priority={true} />
       
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/40" />

@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      <VideoBackground videoSrc="/videos/mount-fuji-pastel-sky-wallpaperwaves-com.mp4" />
+      <VideoBackground videoSrc="/videos/mount-fuji-pastel-sky-wallpaperwaves-com.mp4" priority={true} />
       
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/40" />

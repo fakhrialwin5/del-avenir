@@ -25,6 +25,7 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://del-avenir.pages.dev'),
   title: "Del'Avenir",
   description:
     "Generasi 11 Baitul Qur'an — Mewujudkan mimpi, merajut masa depan.",
@@ -95,6 +96,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Preload hero video for LCP — only metadata, full load deferred */}
+        <link rel="preload" as="video" href="/videos/green-fields-and-peaks.960x540.mp4" type="video/mp4" />
+        {/* Preload mount-fuji video for non-home hero pages */}
+        <link rel="dns-prefetch" href="/videos/mount-fuji-pastel-sky-wallpaperwaves-com.mp4" />
       </head>
       <body className="min-h-screen bg-white text-black antialiased film-grain">
         <a

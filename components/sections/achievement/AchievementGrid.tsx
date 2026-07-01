@@ -105,7 +105,7 @@ export default function AchievementGrid({
               >
                 <div
                   id={achievement.id}
-                  className="group relative h-full rounded-card bg-white border border-gray-200 p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-card-hover hover:border-gold/50"
+                  className="group relative h-full rounded-card bg-white border border-gray-200 p-4 sm:p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-card-hover hover:border-gold/50"
                 >
                   {/* Badges */}
                   <div className="flex items-center gap-2 mb-4">

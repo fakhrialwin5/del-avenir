@@ -65,12 +65,12 @@ function VideoBackground() {
       {mounted && (
         <video
           ref={videoRef}
-          className="absolute w-full h-full object-cover"
           style={{
-            top: '300px',
+            top: '200px',
             inset: 'auto 0 0 0',
             opacity: 0,
           }}
+          className="absolute w-full h-full object-cover md:top-[300px]"
           loop
           muted
           playsInline
@@ -170,7 +170,7 @@ export default function HeroSection() {
 
         {/* Main Headline */}
         <h1
-          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-center max-w-6xl font-normal text-white"
+          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] text-center max-w-6xl font-normal text-white"
           style={{ lineHeight: 0.95, letterSpacing: '-0.03em' }}
         >
           <BlurText

@@ -18,7 +18,7 @@ const stats = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-32 md:py-40 bg-white">
+    <section id="about" className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           title="Del'Avenir"

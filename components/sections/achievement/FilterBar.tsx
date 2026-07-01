@@ -27,7 +27,7 @@ export default function FilterBar({
   onSearchChange,
 }: FilterBarProps) {
   return (
-    <div className="sticky top-20 z-10 border-b border-gray-200 bg-white/80 backdrop-blur-md">
+    <div className="sticky top-16 md:top-20 z-10 border-b border-gray-200 bg-white/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         {/* Category Tabs */}
         <div className="flex flex-wrap items-center gap-2 mb-4">

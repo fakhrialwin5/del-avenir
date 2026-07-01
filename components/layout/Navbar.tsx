@@ -12,6 +12,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -113,7 +114,7 @@ export default function Navbar() {
       {/* Mobile: Top bar */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 md:hidden transition-all duration-300 ${
-          scrolled
+          scrolled || !isHome
             ? 'bg-white/90 backdrop-blur-xl border-b border-black/[0.06]'
             : 'bg-transparent'
         }`}
@@ -122,7 +123,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-0.5">
             <span
               className={`font-display text-xl tracking-tight ${
-                scrolled ? 'text-black' : 'text-white'
+                scrolled || !isHome ? 'text-black' : 'text-white'
               }`}
             >
               Del&apos;Avenir
@@ -132,7 +133,7 @@ export default function Navbar() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={`p-2 rounded-full transition-colors ${
-              scrolled
+              scrolled || !isHome
                 ? 'text-black hover:bg-black/5'
                 : 'text-white hover:bg-white/10'
             }`}

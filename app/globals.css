@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* ── Mobile-first responsive container ── */
+.container-mobile {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
 /* ============================================
    DEL'AVENIR DESIGN SYSTEM
    Pure Black & White Cinematic Theme

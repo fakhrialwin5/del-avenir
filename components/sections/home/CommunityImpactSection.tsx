@@ -19,7 +19,7 @@ const stats = [
 
 export default function CommunityImpactSection() {
   return (
-    <section className="py-32 md:py-40 bg-gray-50/80">
+    <section className="py-20 md:py-32 bg-gray-50/80">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           title="Our Impact"

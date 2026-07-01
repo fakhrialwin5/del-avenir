@@ -37,7 +37,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display text-5xl sm:text-7xl md:text-8xl text-white mb-6"
+          className="font-display text-4xl sm:text-7xl md:text-8xl text-white mb-6"
           style={{ lineHeight: 0.95, letterSpacing: '-2.46px' }}
         >
           Achievement <span className="italic text-gray-300">Bank</span>
@@ -58,7 +58,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex items-center justify-center gap-8 text-white/60"
+          className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-white/60"
         >
           <div className="flex items-center gap-2">
             <Trophy className="w-4 h-4" />

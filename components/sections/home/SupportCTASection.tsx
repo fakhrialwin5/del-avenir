@@ -15,7 +15,7 @@ const fadeInUp = {
 
 export default function SupportCTASection() {
   return (
-    <section className="py-32 md:py-40 bg-white">
+    <section className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
           <motion.div

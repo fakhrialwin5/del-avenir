@@ -25,7 +25,7 @@ export default function AchievementsPreviewSection() {
   const { achievements, loading, error } = useAchievements({ limit: 6 });
 
   return (
-    <section className="py-32 md:py-40 bg-gray-50/80">
+    <section className="py-20 md:py-32 bg-gray-50/80">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           title="Achievement Bank"
@@ -72,7 +72,7 @@ export default function AchievementsPreviewSection() {
                   variants={fadeInUp}
                   transition={{ delay: index * 0.06 }}
                 >
-                  <SpotlightCard className="p-6 h-full rounded-3xl card-premium">
+                  <SpotlightCard className="p-4 sm:p-6 h-full rounded-3xl card-premium">
                     <div className="flex items-start justify-between mb-4">
                       <span
                         className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium tracking-wide ${colors.bg} ${colors.text}`}
@@ -85,7 +85,7 @@ export default function AchievementsPreviewSection() {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-display text-black mb-2 leading-snug">
+                    <h3 className="text-base sm:text-lg font-display text-black mb-2 leading-snug">
                       {achievement.title}
                     </h3>
                     <p className="text-sm text-gray-500 font-body leading-relaxed">

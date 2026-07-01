@@ -83,21 +83,21 @@ achievements = [
     },
     {
         "title": "Kejurda Tapak Suci",
-        "description": "Anap (Emas), Nadip (Perunggu), Nazli (Perunggu), Ubaid (Perunggu) — Kejuaraan Daerah Tapak Suci",
+        "description": "Ahnaf (Emas), Nadif (Perunggu), Nazli (Perunggu), Ubaid (Perunggu) — Kejuaraan Daerah Tapak Suci",
         "category": "sports",
         "level": "regional",
         "year": 2025,
-        "students": ["Anap", "Nadip", "Nazli", "Ubaid"],
+        "students": ["Ahnaf", "Nadif", "Nazli", "Ubaid"],
         "ranking": 1,
         "featured": False
     },
     {
         "title": "Ngawi Open",
-        "description": "Nadip (Emas), Anap (Emas), Amad Mubarok (Perak) — Turnamen Ngawi Open",
+        "description": "Nadif (Emas), Ahnaf (Emas), Amad Mubarok (Perak) — Turnamen Ngawi Open",
         "category": "sports",
         "level": "regional",
         "year": 2025,
-        "students": ["Nadip", "Anap", "Amad Mubarok"],
+        "students": ["Nadif", "Ahnaf", "Amad Mubarok"],
         "ranking": 1,
         "featured": False
     },

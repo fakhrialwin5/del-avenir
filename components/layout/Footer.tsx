@@ -9,8 +9,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-8 py-20 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
           {/* Brand - spans more */}
           <div className="md:col-span-5">
             <Link href="/" className="inline-block">
@@ -119,7 +119,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 pt-8 border-t border-white/[0.06]">
+        <div className="mt-10 md:mt-16 pt-8 border-t border-white/[0.06]">
           <p className="text-xs text-white/25 font-body text-center">
             &copy; {currentYear} Del&apos;Avenir. All rights reserved.
           </p>

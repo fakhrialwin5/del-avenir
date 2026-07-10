@@ -7,7 +7,7 @@
 // VideoBackground dan DroneVideoBackground membaca manifest ini — cukup taruh
 // video di public/drone/ dan jalankan `npm run dev` / `npm run build`.
 
-import { readdirSync, existsSync, statSync, writeFileSync } from 'node:fs';
+import { readdirSync, existsSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname, basename, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';

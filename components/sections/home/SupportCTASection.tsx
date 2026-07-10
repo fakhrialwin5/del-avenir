@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/Card';
 import { Heart, HandHeart, CreditCard, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/constants';
 import Link from 'next/link';
+import LiquidGlass from '@/components/ui/LiquidGlass';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 24 },
@@ -15,7 +16,7 @@ const fadeInUp = {
 
 export default function SupportCTASection() {
   return (
-    <section className="py-20 md:py-32 bg-white">
+    <section id="support" className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
           <motion.div
@@ -48,32 +49,34 @@ export default function SupportCTASection() {
           >
             <div className="relative p-[1px] rounded-[1.5rem] bg-gradient-to-br from-black/10 via-black/5 to-transparent h-full">
               <Card className="p-8 md:p-10 bg-black text-white h-full rounded-[calc(1.5rem-1px)]">
+                <LiquidGlass variant="dark" intensity={1} duration={10}>
                 <div className="w-12 h-12 bg-white/[0.08] rounded-xl flex items-center justify-center mb-7 border border-white/[0.06]">
-                  <Heart className="w-5 h-5" strokeWidth={1.5} />
+                  <Heart className="w-5 h-5 text-white" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-display mb-4">Donate Now</h3>
-                <p className="text-white/60 font-body mb-7 text-[15px] leading-relaxed">
-                  Support the development of facilities and educational programs at
-                  
-                </p>
+                  <h3 className="text-xl font-display mb-4">Donate Now</h3>
+                  <p className="text-white/60 font-body mb-7 text-[15px] leading-relaxed">
+                    Support the development of facilities and educational programs at
+                    
+                  </p>
 
-                <div className="divider-elegant-white mb-7" />
+                  <div className="divider-elegant-white mb-7" />
 
-                <div className="space-y-3 mb-8">
-                  <div className="flex items-center gap-3">
-                    <CreditCard className="w-4 h-4 text-white/40" strokeWidth={1.5} />
-                    <span className="text-sm font-body text-white/80">BSI {CONTACT_INFO.donation.accountNumber}</span>
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-center gap-3">
+                      <CreditCard className="w-4 h-4 text-white/40" strokeWidth={1.5} />
+                      <span className="text-sm font-body text-white/80">BSI {CONTACT_INFO.donation.accountNumber}</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-body text-white/40 ml-7">a.n. {CONTACT_INFO.donation.accountName}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-body text-white/40 ml-7">a.n. {CONTACT_INFO.donation.accountName}</span>
-                  </div>
-                </div>
 
                 <Link href="/support">
                   <Button className="w-full bg-white text-black hover:bg-gray-100 btn-premium">
                     Donate Now
                   </Button>
                 </Link>
+                </LiquidGlass>
               </Card>
             </div>
           </motion.div>

@@ -15,8 +15,8 @@ const coreValues = [
 
 export default function VisionMissionSection() {
   return (
-    <section className="py-20 md:py-32 bg-gray-50/80">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="vision" className="section-diagonal py-20 md:py-32 bg-gray-50/80">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <SectionHeading
           title="Vision & Mission"
           subtitle="The guiding principles that drive Generation 11 Baitul Qur'an"

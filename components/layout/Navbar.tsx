@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
+import LiquidGlass from '@/components/ui/LiquidGlass';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

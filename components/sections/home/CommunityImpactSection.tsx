@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Users, Trophy, Heart, GraduationCap } from 'lucide-react';
 import CountUp from '@/components/ui/CountUp';
+import LiquidGlass from '@/components/ui/LiquidGlass';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 24 },
@@ -19,8 +20,8 @@ const stats = [
 
 export default function CommunityImpactSection() {
   return (
-    <section className="py-20 md:py-32 bg-gray-50/80">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="community" className="section-diagonal py-20 md:py-32 bg-gray-50/80">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <SectionHeading
           title="Our Impact"
           subtitle="Making a difference in the community through education and service"
@@ -36,16 +37,18 @@ export default function CommunityImpactSection() {
             variants={fadeInUp}
             className="md:col-span-5 p-8 md:p-10 rounded-3xl bg-white border border-black/[0.04] text-center flex flex-col items-center justify-center card-premium"
           >
+            <LiquidGlass variant="light" intensity={0.8} duration={12}>
             <div className="w-14 h-14 bg-black rounded-2xl flex items-center justify-center mb-6">
               <Users className="w-6 h-6 text-white" strokeWidth={1.5} />
             </div>
-            <div className="flex items-baseline justify-center gap-1 mb-2">
-              <span className="font-display text-6xl md:text-7xl text-black">
-                <CountUp target={1000} />
-              </span>
-              <span className="font-display text-3xl text-black/40">+</span>
-            </div>
-            <p className="text-sm text-gray-500 font-body">Active Students</p>
+              <div className="flex items-baseline justify-center gap-1 mb-2">
+                <span className="font-display text-6xl md:text-7xl text-black">
+                  <CountUp target={1000} />
+                </span>
+                <span className="font-display text-3xl text-black/40">+</span>
+              </div>
+              <p className="text-sm text-gray-500 font-body">Active Students</p>
+            </LiquidGlass>
           </motion.div>
 
           {/* Right Column - Stacked Stats */}

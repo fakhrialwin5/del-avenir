@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Calendar, Users, BookOpen, MapPin } from 'lucide-react';
+import LiquidGlass from '@/components/ui/LiquidGlass';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 24 },
@@ -32,6 +33,7 @@ export default function AboutSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUp}
+            className="relative -mt-8 md:-mt-16"
           >
             <div className="relative p-[1px] rounded-[1.5rem] bg-gradient-to-br from-black/10 via-black/5 to-transparent">
               <div className="relative bg-black text-white rounded-[calc(1.5rem-1px)] p-10 md:p-12 overflow-hidden">
@@ -45,32 +47,33 @@ export default function AboutSection() {
                   />
                 </div>
 
-                {/* Content */}
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-14 h-14 bg-white/[0.08] rounded-2xl flex items-center justify-center border border-white/[0.06]">
-                      <span className="text-xl font-display">بِق</span>
+                <LiquidGlass variant="dark" intensity={1} duration={10}>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-4 mb-8">
+                    <div className="w-14 h-14 bg-black rounded-2xl flex items-center justify-center border border-white/10">
+                      <span className="text-xl font-display text-white">بِق</span>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-display">Baitul Qur&apos;an</h3>
-                      <p className="text-white/50 font-body text-sm">Islamic Boarding School</p>
+                      <div>
+                        <h3 className="text-xl font-display">Baitul Qur&apos;an</h3>
+                        <p className="text-white/50 font-body text-sm">Islamic Boarding School</p>
+                      </div>
                     </div>
+
+                    <div className="divider-elegant-white mb-8" />
+
+                    <p className="text-white/70 font-body leading-relaxed mb-6 text-[15px]">
+                      Pesantren Baitul Qur&apos;an Sragen is a leading Islamic boarding school in
+                      Central Java, dedicated to nurturing students who excel in both religious
+                      knowledge and modern education.
+                    </p>
+
+                    <p className="text-white/70 font-body leading-relaxed text-[15px]">
+                      Since its establishment, the pesantren has been committed to producing
+                      a generation of leaders grounded in Quranic values while embracing
+                      academic excellence and artistic creativity.
+                    </p>
                   </div>
-
-                  <div className="divider-elegant-white mb-8" />
-
-                  <p className="text-white/70 font-body leading-relaxed mb-6 text-[15px]">
-                    Pesantren Baitul Qur&apos;an Sragen is a leading Islamic boarding school in
-                    Central Java, dedicated to nurturing students who excel in both religious
-                    knowledge and modern education.
-                  </p>
-
-                  <p className="text-white/70 font-body leading-relaxed text-[15px]">
-                    Since its establishment, the pesantren has been committed to producing
-                    a generation of leaders grounded in Quranic values while embracing
-                    academic excellence and artistic creativity.
-                  </p>
-                </div>
+                </LiquidGlass>
               </div>
             </div>
           </motion.div>
@@ -93,19 +96,48 @@ export default function AboutSection() {
 
             <div className="grid grid-cols-2 gap-5">
               {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="group p-5 rounded-2xl bg-gray-50/80 border border-black/[0.04] card-premium"
-                >
-                  <stat.icon className="w-4 h-4 text-gray-400 mb-3" strokeWidth={1.5} />
-                  <p className="text-[10px] font-body text-gray-400 uppercase tracking-[0.15em] mb-1">
-                    {stat.label}
-                  </p>
-                  <p className="text-lg font-display text-black">{stat.value}</p>
-                </div>
+                <LiquidGlass key={stat.label} variant="light" intensity={0.6} duration={10}>
+                  <div
+                    className="group p-5 rounded-2xl bg-gray-50/80 border border-black/[0.04] card-premium"
+                  >
+                    <stat.icon className="w-4 h-4 text-gray-400 mb-3" strokeWidth={1.5} />
+                    <p className="text-[10px] font-body text-gray-400 uppercase tracking-[0.15em] mb-1">
+                      {stat.label}
+                    </p>
+                    <p className="text-lg font-display text-black">{stat.value}</p>
+                  </div>
+                </LiquidGlass>
               ))}
             </div>
           </motion.div>
+        </div>
+
+        {/* Mega Stats Strip */}
+        <div className="mt-20 md:mt-28 pt-10 border-t border-black/[0.04]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            {[
+              { number: '2015', label: 'Established' },
+              { number: '1000+', label: 'Active Students' },
+              { number: '50+', label: 'Programs' },
+              { number: '3', label: 'Years Legacy' },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="text-center"
+              >
+                <p className="font-display text-5xl md:text-6xl lg:text-7xl text-black leading-none mb-2">
+                  {stat.number}
+                </p>
+                <p className="text-[10px] font-body text-gray-400 uppercase tracking-[0.2em]">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

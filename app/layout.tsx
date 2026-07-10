@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter, Amiri } from "next/font/google";
+import { Instrument_Serif, Inter, Amiri, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SmoothScroll from "@/components/layout/SmoothScroll";
+import ScrollProgress from "@/components/layout/ScrollProgress";
+import CursorGlow from "@/components/ui/CursorGlow";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -15,6 +18,13 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-ui",
 });
 
 const amiri = Amiri({
@@ -89,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} ${inter.variable} ${amiri.variable}`}>
+    <html lang="en" className={`${instrumentSerif.variable} ${inter.variable} ${spaceGrotesk.variable} ${amiri.variable}`}>
       <head>
         {/* Resource hints for Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -108,9 +118,13 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Navbar />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <ScrollProgress />
+          <CursorGlow />
+        </SmoothScroll>
       </body>
     </html>
   );

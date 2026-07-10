@@ -25,7 +25,7 @@ export default function AchievementsPreviewSection() {
   const { achievements, loading, error } = useAchievements({ limit: 6 });
 
   return (
-    <section className="py-20 md:py-32 bg-gray-50/80">
+    <section id="achievements" className="py-20 md:py-32 bg-gray-50/80">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           title="Achievement Bank"

@@ -27,17 +27,12 @@ export default function SmoothScroll({
 
     requestAnimationFrame(raf);
 
-    // Sync Lenis with IntersectionObserver
-    // This ensures scroll-based animations work properly
-    const syncScroll = () => {
-      // Dispatch a scroll event so IntersectionObserver can detect it
-      window.dispatchEvent(new Event('scroll'));
-    };
+    const scrollToTop = () => lenis.scrollTo(0, { duration: 1.4 });
 
-    lenis.on('scroll', syncScroll);
+    window.addEventListener('lenis:scroll-to-top', scrollToTop);
 
     return () => {
-      lenis.off('scroll', syncScroll);
+      window.removeEventListener('lenis:scroll-to-top', scrollToTop);
       lenis.destroy();
     };
   }, []);

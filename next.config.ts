@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /* Pin Turbopack workspace root so module resolution targets this project's
+     node_modules (Next may mis-detect root when a lockfile exists in a parent dir) */
+  turbopack: {
+    root: process.cwd(),
+  },
+
   /* Image optimization */
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -59,6 +65,19 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/videos/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Accept-Ranges',
+            value: 'bytes',
+          },
+        ],
+      },
+      {
+        source: '/drone/(.*)',
         headers: [
           {
             key: 'Cache-Control',

@@ -1,0 +1,149 @@
+'use client';
+
+import { useEffect, useRef, useState, type RefObject } from 'react';
+import { DRONE_VIDEO_SRC, DRONE_FPS } from '@/lib/drone';
+
+interface DroneVideoBackgroundProps {
+  videoSrc?: string;
+  /** Ref to the tall scroll-track element whose scroll range scrubs the flight. */
+  trackRef?: RefObject<HTMLElement | null>;
+  priority?: boolean;
+  className?: string;
+}
+
+/**
+ * Scroll-controlled drone flight.
+ *
+ * The footage is NEVER autoplayed and NEVER looped. The page scroll scrubs
+ * `video.currentTime` directly: scroll down = forward, scroll up = backward.
+ *
+ * To render EVERY frame cleanly (no cut / dropped frames) the source is an
+ * all-intra (every-frame-keyframe) clip, and each seek is snapped to the exact
+ * frame boundary at the clip's real fps. A per-frame easing lerp gives calm,
+ * inertial, Apple-like motion. At the end of the track the flight simply holds
+ * — there is no restart or loop.
+ */
+export default function DroneVideoBackground({
+  videoSrc,
+  trackRef,
+  priority = false,
+  className = '',
+}: DroneVideoBackgroundProps) {
+  const src = videoSrc ?? DRONE_VIDEO_SRC;
+  const fps = DRONE_FPS || 30;
+  const frameDur = 1 / fps;
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [duration, setDuration] = useState(0);
+  const [ready, setReady] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Eased scrub state (0..1 across the flight).
+  const currentRef = useRef(0);
+  const targetRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
+  const lastSeekRef = useRef(-1); // last frame index we requested
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Raw scroll progress from the track (or whole document as fallback).
+  const computeTarget = () => {
+    if (trackRef?.current) {
+      const rect = trackRef.current.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const p = total > 0 ? -rect.top / total : 0;
+      targetRef.current = Math.min(1, Math.max(0, p));
+    } else {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      targetRef.current = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    }
+  };
+
+  useEffect(() => {
+    if (!mounted) return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    const onMeta = () => {
+      setDuration(video.duration || 0);
+      try {
+        video.currentTime = 0; // prime the first frame
+      } catch {
+        /* not ready yet */
+      }
+      setReady(true);
+    };
+    video.addEventListener('loadedmetadata', onMeta);
+
+    const onScroll = () => computeTarget();
+    computeTarget();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    // Inertial smoothing — lower = calmer / more cinematic glide.
+    const EASE = 0.12;
+    const tick = () => {
+      currentRef.current += (targetRef.current - currentRef.current) * EASE;
+
+      if (duration > 0 && video) {
+        // Map progress -> exact frame time (snap to frame boundary).
+        const exact = currentRef.current * duration;
+        let t = Math.round(exact / frameDur) * frameDur;
+        t = Math.min(duration, Math.max(0, t));
+
+        const frameIdx = Math.round(t * fps);
+        // Only seek when we actually need a different frame (avoids decoder
+        // thrash and guarantees we render every real frame in order).
+        if (frameIdx !== lastSeekRef.current) {
+          lastSeekRef.current = frameIdx;
+          try {
+            video.currentTime = t;
+          } catch {
+            /* seeking not possible this frame */
+          }
+        }
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      video.removeEventListener('loadedmetadata', onMeta);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [mounted, duration, trackRef, fps, frameDur]);
+
+  return (
+    <div className={`absolute inset-0 overflow-hidden ${className}`}>
+      {/* Dark gradient placeholder — always visible (LCP fix, no black flash). */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900" />
+
+      {mounted && (
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            // Tiny scale hides stabilization edge-shift without distorting motion.
+            transform: 'scale(1.04)',
+            opacity: ready ? 1 : 0,
+            transition: 'opacity 0.7s ease',
+          }}
+          muted
+          playsInline
+          preload="auto"
+          // Intentionally: no autoPlay, no loop — scroll scrubs the flight.
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+      )}
+
+      {/* Cinematic overlays for depth + hero-text legibility. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.32)_100%)]" />
+    </div>
+  );
+}

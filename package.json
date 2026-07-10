@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "db:types": "npx supabase gen types typescript --project-id sciznkzrbzvrrgtudxhk > lib/types/database.ts",
-    "db:push": "npx supabase db push"
+    "db:push": "npx supabase db push",
+    "predev": "node scripts/process-drone-video.mjs && node scripts/generate-drone-manifest.mjs",
+    "prebuild": "node scripts/process-drone-video.mjs && node scripts/generate-drone-manifest.mjs"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated drone video manifest (auto-created by scripts/generate-drone-manifest.mjs)
+/lib/generated/
+
+# generated all-intra drone clips (auto-created by scripts/process-drone-video.mjs)
+/public/drone/_processed/

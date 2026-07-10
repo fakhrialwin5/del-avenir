@@ -8,6 +8,7 @@ import AboutSection from '@/components/sections/home/AboutSection';
 import VisionMissionSection from '@/components/sections/home/VisionMissionSection';
 import GenerationHighlightsSection from '@/components/sections/home/GenerationHighlightsSection';
 import AchievementsPreviewSection from '@/components/sections/home/AchievementsPreviewSection';
+import AchievementsHorizontalScroll from '@/components/sections/home/AchievementsHorizontalScroll';
 import MuhadhorohCountdownSection from '@/components/sections/home/MuhadhorohCountdownSection';
 import CommunityImpactSection from '@/components/sections/home/CommunityImpactSection';
 import SupportCTASection from '@/components/sections/home/SupportCTASection';
@@ -46,6 +47,7 @@ export default function Home() {
         <VisionMissionSection />
         <GenerationHighlightsSection />
         <AchievementsPreviewSection />
+        <AchievementsHorizontalScroll />
         <MuhadhorohCountdownSection />
         <CommunityImpactSection />
         <SupportCTASection />

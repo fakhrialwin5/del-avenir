@@ -32,6 +32,14 @@ function rawVideos() {
     });
 }
 
+// If ffmpeg is unavailable (e.g. some CI build images), skip re-encoding
+// and let the site fall back to the raw video instead of failing the build.
+const _ff = spawnSync('ffmpeg', ['-version']);
+if (_ff.error || _ff.status !== 0) {
+  console.warn('[drone-process] ffmpeg not found — skipping all-intra re-encode; using raw video (scrubbing may be less smooth on this environment).');
+  process.exit(0);
+}
+
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 
 let didWork = false;

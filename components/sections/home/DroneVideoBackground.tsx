@@ -61,6 +61,16 @@ export default function DroneVideoBackground({
     }
   };
 
+  // Only one seek may be in flight at a time. We wait for the browser to
+  // actually PRESENT the frame (requestVideoFrameCallback / 'seeked') before
+  // issuing the next one. Without this gate the browser coalesces rapid
+  // currentTime writes and silently drops the in-between frames — which is
+  // exactly what makes the flight look choppy / "only a few frames".
+  const seekingRef = useRef(false);
+  const supportsRVFC =
+    typeof HTMLVideoElement !== 'undefined' &&
+    'requestVideoFrameCallback' in HTMLVideoElement.prototype;
+
   useEffect(() => {
     if (!mounted) return;
     const video = videoRef.current;
@@ -82,27 +92,43 @@ export default function DroneVideoBackground({
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
 
+    // Fired once the in-flight seek has been painted — clears the gate so a
+    // new seek (if scroll moved on) can be issued immediately.
+    const onPresented = () => {
+      seekingRef.current = false;
+    };
+    if (supportsRVFC) {
+      // requestVideoFrameCallback is one-shot; re-arm after each seek below.
+      video.addEventListener('seeked', onPresented);
+    }
+
     // Inertial smoothing — lower = calmer / more cinematic glide.
     const EASE = 0.12;
+    const issueSeek = (t: number, frameIdx: number) => {
+      lastSeekRef.current = frameIdx;
+      seekingRef.current = true;
+      try {
+        video.currentTime = t;
+      } catch {
+        seekingRef.current = false;
+      }
+      if (supportsRVFC) {
+        video.requestVideoFrameCallback(onPresented);
+      }
+    };
+
     const tick = () => {
       currentRef.current += (targetRef.current - currentRef.current) * EASE;
 
-      if (duration > 0 && video) {
+      if (duration > 0 && video && !seekingRef.current) {
         // Map progress -> exact frame time (snap to frame boundary).
         const exact = currentRef.current * duration;
         let t = Math.round(exact / frameDur) * frameDur;
         t = Math.min(duration, Math.max(0, t));
 
         const frameIdx = Math.round(t * fps);
-        // Only seek when we actually need a different frame (avoids decoder
-        // thrash and guarantees we render every real frame in order).
         if (frameIdx !== lastSeekRef.current) {
-          lastSeekRef.current = frameIdx;
-          try {
-            video.currentTime = t;
-          } catch {
-            /* seeking not possible this frame */
-          }
+          issueSeek(t, frameIdx);
         }
       }
       rafRef.current = requestAnimationFrame(tick);
@@ -111,11 +137,12 @@ export default function DroneVideoBackground({
 
     return () => {
       video.removeEventListener('loadedmetadata', onMeta);
+      video.removeEventListener('seeked', onPresented);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [mounted, duration, trackRef, fps, frameDur]);
+  }, [mounted, duration, trackRef, fps, frameDur, supportsRVFC]);
 
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>

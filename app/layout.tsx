@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter, Amiri, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import CursorGlow from "@/components/ui/CursorGlow";
-import { Analytics } from "@vercel/analytics/next";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -126,8 +126,8 @@ export default function RootLayout({
           <ScrollProgress />
           <CursorGlow />
         </SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );
 }
-<Analytics />

@@ -282,8 +282,8 @@ export const CONTACT_INFO = {
   ],
   donation: {
     bank: "BSI (Bank Syariah Indonesia)",
-    accountNumber: "7135722892",
-    accountName: "Asma Arini Hidayah (Ustadzah)",
+    accountNumber: "7149806207",
+    accountName: "Fista Titianingrum",
     whatsapp: "0895-4012-09855",
     whatsappClean: "62895401209855",
   },
@@ -294,7 +294,7 @@ export const FAQ_ITEMS = [
   {
     question: "Bagaimana cara berdonasi?",
     answer:
-      "Anda dapat berdonasi dengan mentransfer ke rekening BSI (Bank Syariah Indonesia) nomor 7135722892 atas nama Asma Arini Hidayah (Ustadzah). Setelah transfer, kirimkan bukti transfer ke WhatsApp 0895-4012-09855.",
+      "Anda dapat berdonasi dengan mentransfer ke rekening BSI (Bank Syariah Indonesia) nomor 7149806207 atas nama Fista Titianingrum. Setelah transfer, kirimkan bukti transfer ke WhatsApp 0895-4012-09855.",
   },
   {
     question: "Bisakah saya donasi atas nama perusahaan?",

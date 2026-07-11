@@ -106,6 +106,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${instrumentSerif.variable} ${inter.variable} ${spaceGrotesk.variable} ${amiri.variable}`}>
       <head>
+        <meta name="google-site-verification" content="29OTV3bb0Ak11Y6-ZMVPROLjKYxMWmVCR72cp0AE_B8" />
         {/* Resource hints for Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

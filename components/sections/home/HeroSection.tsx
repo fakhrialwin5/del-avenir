@@ -66,10 +66,11 @@ export default function HeroSection() {
     offset: ['start start', 'end end'],
   });
 
-  // Hero content fades + lifts away as the flight begins (minimal distraction).
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.16], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 0.16], [0, -48]);
-  const hintOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
+  // Hero content fades + lifts away gradually as the flight begins, then
+  // stays permanently gone (no loop). Slower range = gentler "perlahan" exit.
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.35], [0, -80]);
+  const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');

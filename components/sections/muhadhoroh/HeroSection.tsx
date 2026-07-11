@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Calendar, MapPin, Users, Clock } from 'lucide-react';
 import VideoBackground from '@/components/sections/home/VideoBackground';
 
-const targetDate = new Date('2026-08-15T08:00:00+07:00').getTime();
+const targetDate = new Date('2026-08-23T19:15:00+07:00').getTime();
 
 function useCountdown(target: number) {
   const [now, setNow] = useState(Date.now());
@@ -121,7 +121,11 @@ export default function HeroSection() {
         >
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4" />
-            <span className="text-sm font-body">August 15, 2026</span>
+            <span className="text-sm font-body">August 23, 2026</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock className="w-4 h-4" />
+            <span className="text-sm font-body">19:15 - 22:30</span>
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
@@ -129,7 +133,7 @@ export default function HeroSection() {
           </div>
           <div className="flex items-center gap-2">
             <Users className="w-4 h-4" />
-            <span className="text-sm font-body">1000+ Participants</span>
+            <span className="text-sm font-body">800+ Participants</span>
           </div>
         </motion.div>
 

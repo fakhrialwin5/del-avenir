@@ -139,35 +139,22 @@ export const MUHADHOROH_EVENT = {
   title: "Muhadhoroh Kubro",
   subtitle: "Spectacular Annual Performances",
   description:
-    "Muhadhoroh Kubro merupakan acara tahunan santri yang menampilkan berbagai pertunjukan spektakuler, yang meliputi beberapa penampilan seni, yang dibungkus dengan multibahasa (Arab & Inggris) dan kreativitas santri.",
+    "Dengan tema \"Discovering the Beauty of Islam Across Cultures\", kami berfokus pada bagaimana agama Islam memiliki pengaruh dan sejarah yang sangat besar dalam dinamika kehidupan yang terbentuk dan tersebar luas di seluruh penjuru dunia.",
   descriptionEn:
-    "Muhadhoroh Kubro is an annual student event featuring spectacular performances, including various art performances wrapped in multilingual presentations (Arabic & English) and student creativity.",
-  date: new Date("2026-08-15T08:00:00"),
-  endDate: new Date("2026-08-16T17:00:00"),
-  expectedAttendees: 1000,
+    "With the theme \"Discovering the Beauty of Islam Across Cultures\", we focus on how Islam has a very large influence and history in the dynamics of life that has been formed and spread across the world.",
+  date: new Date("2026-08-23T19:15:00+07:00"),
+  endDate: new Date("2026-08-23T22:30:00+07:00"),
+  expectedAttendees: 800,
   schedule: [
     {
       day: 1,
-      label: "Day 1 - Competition Day",
-      date: "Jumat, 15 Agustus 2026",
+      label: "Muhadhoroh Kubro",
+      date: "Minggu, 23 Agustus 2026",
       events: [
-        { time: "08:00 - 09:00", title: "Opening Ceremony", description: "Upacara pembukaan Muhadhoroh Kubro" },
-        { time: "09:00 - 12:00", title: "Quran Recitation Competition", description: "Lomba Tilawah dan Tahfidz Qur'an" },
-        { time: "12:00 - 13:00", title: "Break & Dzuhur Prayer", description: "Istirahat dan Sholat Dzuhur" },
-        { time: "13:00 - 16:00", title: "Multilingual Speech Competition", description: "LombaPidato Multibahasa (Arab & Inggris)" },
-        { time: "16:00 - 16:30", title: "Day 1 Closing", description: "Penutupan hari pertama" },
-      ],
-    },
-    {
-      day: 2,
-      label: "Day 2 - Performance Day",
-      date: "Sabtu, 16 Agustus 2026",
-      events: [
-        { time: "08:00 - 10:00", title: "Art Performances", description: "Penampilan seni dan kaligrafi" },
-        { time: "10:00 - 12:00", title: "Theater & Drama", description: "Pentas teater dan drama multibahasa" },
-        { time: "12:00 - 13:00", title: "Break & Dzuhur Prayer", description: "Istirahat dan Sholat Dzuhur" },
-        { time: "13:00 - 15:00", title: "Musical Performances", description: "Penampilan musik dan nasheed" },
-        { time: "15:00 - 17:00", title: "Grand Finale & Awards", description: "Puncak acara dan pemberian penghargaan" },
+        { time: "19:15 - 20:00", title: "Opening Ceremony", description: "Upacara pembukaan Muhadhoroh Kubro" },
+        { time: "20:00 - 21:00", title: "Quran Recitation & Speech", description: "Tilawah, Tahfidz, dan Pidato Multibahasa" },
+        { time: "21:00 - 22:00", title: "Theater, Drama & Arts", description: "Pentas seni, kaligrafi, dan drama multibahasa" },
+        { time: "22:00 - 22:30", title: "Nasheed, Musical & Awards", description: "Penampilan musik, nasheed, dan pemberian penghargaan" },
       ],
     },
   ],
@@ -180,8 +167,8 @@ export const MUHADHOROH_EVENT = {
     { type: "multilingual", label: "Multilingual", icon: "globe", description: "Performances in Arabic, English, and Indonesian" },
   ],
   venue: {
-    name: "Pesantren Baitul Qur'an Sragen",
-    address: "Sragen, Jawa Tengah, Indonesia",
+    name: "Lapangan SMA Science Plus Beqi Sragen",
+    address: "Pesantren Baitul Qur'an Jl. Jambeyan, Garut 1 Dukuh Garut RT 04, Desa Dawung, Kecamatan Sambirejo, Kabupaten Sragen, Jawa Tengah 57293",
     facilities: ["Parking Area", "Mosque", "Auditorium", "Canteen", "Medical Room"],
   },
 };
@@ -189,31 +176,91 @@ export const MUHADHOROH_EVENT = {
 // ── Sponsorship Tiers ──
 export const SPONSORSHIP_TIERS = [
   {
-    tier: "Gold",
+    tier: "Glamour",
+    price: "Rp 10.000.000",
+    priceNum: 10000000,
+    benefits: [
+      "Backdrop utama",
+      "Penempatan identitas perusahaan pada layar videotron",
+      "Umbul-umbul & X-Banner",
+      "Attendance slot VVIP & Merchandise exclusive",
+      "Penyebutan oleh MC on stage",
+      "Pembuatan dan penayangan video promosi",
+      "Plakat penghargaan & Publikasi sosmed resmi",
+      "Dapat mengajukan benefit tambahan",
+    ],
+    color: "glamour",
+    featured: true,
+  },
+  {
+    tier: "Diamond",
+    price: "Rp 8.000.000",
+    priceNum: 8000000,
+    benefits: [
+      "Backdrop utama",
+      "Penempatan identitas perusahaan pada layar videotron",
+      "Umbul-umbul & X-Banner",
+      "Attendance slot VVIP & Merchandise exclusive",
+      "Penyebutan oleh MC on stage",
+      "Pembuatan dan penayangan video promosi",
+      "Plakat penghargaan & Publikasi sosmed resmi",
+    ],
+    color: "diamond",
+    featured: true,
+  },
+  {
+    tier: "Platinum",
     price: "Rp 5.000.000",
     priceNum: 5000000,
     benefits: [
-      "Logo on main banner",
-      "VIP seats at event",
-      "MC mention during event",
-      "Exclusive gift box",
-      "Logo on website",
+      "Backdrop utama",
+      "Penempatan identitas perusahaan pada layar videotron",
+      "Umbul-umbul & X-Banner",
+      "Attendance slot VVIP & Merchandise exclusive",
+      "Penyebutan oleh MC on stage",
+    ],
+    color: "platinum",
+    featured: false,
+  },
+  {
+    tier: "Gold",
+    price: "Rp 3.000.000",
+    priceNum: 3000000,
+    benefits: [
+      "Backdrop utama",
+      "Penempatan identitas perusahaan pada layar videotron",
+      "Umbul-umbul & X-Banner",
+      "Attendance slot",
+      "Penyebutan oleh MC on stage",
     ],
     color: "gold",
+    featured: false,
   },
   {
     tier: "Silver",
-    price: "Rp 2.500.000",
-    priceNum: 2500000,
-    benefits: ["Logo on banner", "Reserved seats", "MC mention during event", "Logo on website"],
-    color: "gray",
+    price: "Rp 2.000.000",
+    priceNum: 2000000,
+    benefits: [
+      "Backdrop utama",
+      "Penempatan identitas perusahaan pada layar videotron",
+      "Umbul-umbul & Attendance slot",
+      "Penyebutan oleh MC on stage",
+    ],
+    color: "silver",
+    featured: false,
   },
   {
     tier: "Bronze",
     price: "Rp 1.000.000",
     priceNum: 1000000,
-    benefits: ["Logo on website", "Thank you card"],
-    color: "amber",
+    benefits: [
+      "Backdrop utama",
+      "Penempatan identitas perusahaan pada layar videotron",
+      "Attendance slot",
+      "Penyebutan oleh MC on stage",
+    ],
+    color: "bronze",
+    featured: false,
   },
 ];
 
@@ -235,8 +282,8 @@ export const CONTACT_INFO = {
   ],
   donation: {
     bank: "BSI (Bank Syariah Indonesia)",
-    accountNumber: "7149806207",
-    accountName: "Fista Titianingrum",
+    accountNumber: "7135722892",
+    accountName: "Asma Arini Hidayah (Ustadzah)",
     whatsapp: "0895-4012-09855",
     whatsappClean: "62895401209855",
   },
@@ -247,7 +294,7 @@ export const FAQ_ITEMS = [
   {
     question: "Bagaimana cara berdonasi?",
     answer:
-      "Anda dapat berdonasi dengan mentransfer ke rekening BSI (Bank Syariah Indonesia) nomor 7149806207 atas nama Fista Titianingrum. Setelah transfer, kirimkan bukti transfer ke WhatsApp 0895-4012-09855.",
+      "Anda dapat berdonasi dengan mentransfer ke rekening BSI (Bank Syariah Indonesia) nomor 7135722892 atas nama Asma Arini Hidayah (Ustadzah). Setelah transfer, kirimkan bukti transfer ke WhatsApp 0895-4012-09855.",
   },
   {
     question: "Bisakah saya donasi atas nama perusahaan?",
@@ -262,7 +309,7 @@ export const FAQ_ITEMS = [
   {
     question: "Bagaimana cara menjadi sponsor?",
     answer:
-      "Silakan pilih paket sponsorship yang tersedia (Gold, Silver, atau Bronze) atau hubungi admin kami untuk paket custom. Tim kami akan menghubungi Anda untuk proses selanjutnya.",
+      "Silakan pilih paket sponsorship yang tersedia (Glamour, Diamond, Platinum, Gold, Silver, atau Bronze) atau hubungi admin kami untuk paket custom. Tim kami akan menghubungi Anda untuk proses selanjutnya.",
   },
   {
     question: "Apakah saya bisa mendapatkan bukti donasi?",
@@ -273,8 +320,8 @@ export const FAQ_ITEMS = [
 
 // ── Social Media ──
 export const SOCIAL_LINKS = {
-  instagram: "#",
-  youtube: "#",
+  instagram: "https://www.instagram.com/delavenir.ofc",
+  youtube: "https://www.youtube.com/@BEQITV",
   tiktok: "#",
   whatsapp: "https://wa.me/6289510084866",
 };

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
-import { Calendar, MapPin, Users, Music, Languages, Palette } from 'lucide-react';
+import { Calendar, MapPin, Users, Music, Languages, Palette, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
@@ -13,16 +13,17 @@ const fadeInUp = {
 };
 
 const eventDetails = [
-  { icon: Calendar, label: 'Date', value: 'August 15, 2026' },
-  { icon: MapPin, label: 'Venue', value: "Del'Avenir" },
-  { icon: Users, label: 'Participants', value: '1000+ Attendees' },
+  { icon: Calendar, label: 'Date', value: 'Sunday, August 23, 2026' },
+  { icon: Clock, label: 'Time', value: '19:15 - 22:30 WIB' },
+  { icon: MapPin, label: 'Venue', value: "Lapangan SMA Science Plus Beqi Sragen" },
+  { icon: Users, label: 'Participants', value: '800+ Attendees' },
 ];
 
 const performances = [
   {
     icon: Music,
-    title: 'Musical Performances',
-    description: 'Traditional and modern Islamic music performances',
+    title: 'Nasheed & Musical',
+    description: 'Islamic musical performances and nasheed',
   },
   {
     icon: Languages,
@@ -31,7 +32,7 @@ const performances = [
   },
   {
     icon: Palette,
-    title: 'Artistic Showcases',
+    title: 'Theater, Drama & Arts',
     description: 'Calligraphy, drama, and visual arts exhibitions',
   },
 ];
@@ -77,10 +78,9 @@ export default function MuhadhorohCountdownSection() {
                 <div className="divider-elegant-white mb-8" />
 
                 <p className="text-white/60 font-body leading-relaxed mb-8 text-[15px]">
-                  Muhadhoroh Kubro merupakan acara tahunan santri yang menampilkan
-                  berbagai pertunjukan yang spektakuler, yang meliputi beberapa
-                  penampilan seni, yang dibungkus dengan multibahasa (Arab &amp; Inggris)
-                  dan kreativitas santri.
+                  Dengan tema &quot;Discovering the Beauty of Islam Across Cultures&quot;,
+                  kami berfokus pada bagaimana agama Islam memiliki pengaruh dan sejarah yang
+                  sangat besar dalam dinamika kehidupan yang terbentuk dan tersebar luas di seluruh penjuru dunia.
                 </p>
 
                 <div className="flex flex-wrap gap-3">

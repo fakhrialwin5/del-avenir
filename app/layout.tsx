@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import CursorGlow from "@/components/ui/CursorGlow";
+import { Analytics } from "@vercel/analytics/next";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -129,3 +130,4 @@ export default function RootLayout({
     </html>
   );
 }
+<Analytics />

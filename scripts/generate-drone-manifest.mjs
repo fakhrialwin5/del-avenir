@@ -41,10 +41,10 @@ function resolveSrc(file) {
   const base = basename(file, extname(file)) + '.mp4';
   const proc = join(PROC_DIR, base);
   if (existsSync(proc) && statSync(proc).size > 0) {
-    return { publicPath: encodeURI(`/drone/_processed/${base}`), diskPath: proc };
+    return { publicPath: `/drone/_processed/${encodeURIComponent(base)}`, diskPath: proc };
   }
   const raw = join(DRONE_DIR, file);
-  return { publicPath: encodeURI(`/drone/${file}`), diskPath: raw };
+  return { publicPath: `/drone/${encodeURIComponent(file)}`, diskPath: raw };
 }
 
 function probeFps(diskPath) {

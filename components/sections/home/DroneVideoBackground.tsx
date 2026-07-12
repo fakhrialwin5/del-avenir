@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useRef, useState, type RefObject } from 'react';
 import { DRONE_VIDEO_SRC, DRONE_FPS } from '@/lib/drone';
 
@@ -48,6 +46,19 @@ export default function DroneVideoBackground({
     setMounted(true);
   }, []);
 
+  // Throttle scroll computations to prevent seeking storms and frame drops
+  let scrollTimeoutRef: NodeJS.Timeout | null = null;
+  const THROTTLE_MS = 16; // Target ~60fps for updates (caps computation bursts)
+
+  // Batching scroll computations to prevent excessive seeks
+  const throttledComputeTarget = () => {
+    if (scrollTimeoutRef) return;
+    scrollTimeoutRef = setTimeout(() => {
+      scrollTimeoutRef = null;
+      computeTarget();
+    }, THROTTLE_MS);
+  };
+
   // Raw scroll progress from the track (or whole document as fallback).
   const computeTarget = () => {
     if (trackRef?.current) {
@@ -87,8 +98,8 @@ export default function DroneVideoBackground({
     };
     video.addEventListener('loadedmetadata', onMeta);
 
-    const onScroll = () => computeTarget();
-    computeTarget();
+    const onScroll = () => throttledComputeTarget();
+    throttledComputeTarget();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
 
@@ -102,9 +113,11 @@ export default function DroneVideoBackground({
       video.addEventListener('seeked', onPresented);
     }
 
-    // Inertial smoothing — lower = calmer / more cinematic glide.
-    const EASE = 0.12;
+    // Smoother scrubbing: lower inertia for immediate response
+    const EASE = 0.18; // Increased from 0.12 for snappier feel
     const issueSeek = (t: number, frameIdx: number) => {
+      // Atomic frame scheduling: protect against rapid seeks that cause dropped frames.
+      if (seekingRef.current) return;
       lastSeekRef.current = frameIdx;
       seekingRef.current = true;
       try {

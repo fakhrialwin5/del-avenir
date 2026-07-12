@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# kilo agent internal
+.kilo/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -53,7 +53,7 @@ function FloatingParticles() {
 /* ── Hero / Drone Flight Section ── */
 export default function HeroSection() {
   // The tall track whose scroll range scrubs the drone flight (no loop).
-  const trackRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -90,7 +90,7 @@ export default function HeroSection() {
       {/* Pinned viewport — stays fixed while the tall track scrolls past. */}
       <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
         {/* Scroll-scrubbed drone footage (down = forward, up = backward). */}
-        <DroneVideoBackground trackRef={trackRef} priority />
+        <DroneVideoBackground trackRef={trackRef} />
 
         <FloatingParticles />
 
